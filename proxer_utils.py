@@ -60,18 +60,33 @@ def get_mp4_url(url: str) -> str:
     return content[link_index:].partition('"')[0]
 
 
-def download_mp4(url: str, filepath: str) -> None:
+def download_mp4(url: str, filepath: str, label: str = '') -> None:
     """
     Downloads mp4 from url and posts to file, prints progress to stdout
 
     :param url: url of mp4
     :param filepath: filepath to output
+    :param label: optional label for stdout progress bar, max length 32
     """
-    CHUNK_SIZE : int      = 255
-    content    : Response = get(url, stream=True)
-    t_leng     : int      = int(content.headers.get('content-length'))
+    CHUNK_SIZE : int = 255
+    LABEL_SIZE : int = 32
+    # parse label
+    if label == '':
+        pass
+    elif len(label) >= 32:
+        label = label[:28] + '... '
+    else:
+        label = label.ljust(32, ' ')
+    # get page
+    content : Response = get(url, stream=True)
+    t_leng  : int      = int(content.headers.get('content-length'))
+    # dl to file
+    
     with open(filepath, 'wb') as file:
-        for chunk in progress.bar(content.iter_content(chunk_size=255), expected_size=t_leng/CHUNK_SIZE):
-            if chunk:  # filter out keep-alive new chunks
-                file.write(chunk)
-                file.flush()
+        if t_leng:
+            for chunk in progress.bar(content.iter_content(chunk_size=255), expected_size=t_leng/CHUNK_SIZE, label=label):
+                if chunk:  # filter out keep-alive new chunks
+                    file.write(chunk)
+                    #file.flush()
+        else:
+            file.write(content)
