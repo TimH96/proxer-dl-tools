@@ -4,8 +4,8 @@
     lib for utility functions to scrape data from proxer.me
 """
 
-from requests import Response, get
-from clint.textui import progress
+from requests       import Response, get
+from clint.textui   import progress
 
 
 class TargetNotFoundError(Exception):
