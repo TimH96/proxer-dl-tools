@@ -73,20 +73,18 @@ def download_mp4(url: str, filepath: str, label: str = '') -> None:
     # parse label
     if label == '':
         pass
-    elif len(label) >= 32:
-        label = label[:28] + '... '
+    elif len(label) >= LABEL_SIZE:
+        label = label[:LABEL_SIZE-4] + '... '
     else:
-        label = label.ljust(32, ' ')
+        label = label.ljust(LABEL_SIZE, ' ')
     # get page
     content : Response = get(url, stream=True)
     t_leng  : int      = int(content.headers.get('content-length'))
     # dl to file
-    
     with open(filepath, 'wb') as file:
         if t_leng:
             for chunk in progress.bar(content.iter_content(chunk_size=255), expected_size=t_leng/CHUNK_SIZE, label=label):
                 if chunk:  # filter out keep-alive new chunks
                     file.write(chunk)
-                    #file.flush()
         else:
             file.write(content)
