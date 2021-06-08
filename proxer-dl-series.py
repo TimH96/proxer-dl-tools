@@ -89,6 +89,6 @@ if __name__ == '__main__':
         for episode in found_episodes:
             download_mp4(
                 episode['url'],
-                join(args.outdir, f'ep_{episode["ep"]}'),
+                join(args.outdir, f'ep_{episode["ep"]}.mp4'),
                 f'{args.id} {args.lang} ep.{episode["ep"]}'
             )
