@@ -32,3 +32,16 @@ def check_validity_file(filepath: str) -> bool:
             pass
     except Exception:
         script_exit(f'file {filepath} could not be opened')
+
+
+def check_validity_episodes(episodes: str) -> list:
+    """Processes episodes input and checks its validity, exits if invalid"""
+    try:
+        spl_ep : list = list(map(int, episodes.split('-')))
+        if len(spl_ep) != 2:
+            raise Exception
+        if spl_ep[0] > spl_ep[1]:
+            script_exit('start larger than end episode')
+        return spl_ep
+    except Exception:
+        script_exit('episodes input could not be processed')
