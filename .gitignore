@@ -1,4 +1,5 @@
 /__pycache__
 /test.mp4
 /cli-concept.txt
-lib/__pycache__
+/lib/__pycache__
+/build
