@@ -1,5 +1,5 @@
 """
-    proxer-utils.py
+    lib/proxer-utils.py
 
     lib for utility functions to scrape data from proxer.me
 """
@@ -12,7 +12,7 @@ class TargetNotFoundError(Exception):
     """Error thrown when target element of scrape could not be found"""
 
 
-def get_embed_url(url: str, token: tuple) -> str:
+def get_embed_url(url: str, token: list) -> str:
     """
     Returns URL of proxer embed
 
