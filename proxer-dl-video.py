@@ -11,7 +11,7 @@ from argparse           import ArgumentParser, Namespace
 if __name__ == '__main__':
     # argument parsing
     parser : ArgumentParser = ArgumentParser(
-        description='Download single video from proxer.me',
+        description='Download single video from proxer.me, only works for direct proxer uploads',
         allow_abbrev=True
     )
     parser.add_argument(
