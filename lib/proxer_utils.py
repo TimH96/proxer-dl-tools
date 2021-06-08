@@ -6,6 +6,16 @@
 
 from requests       import Response, get
 from clint.textui   import progress
+from enum           import IntEnum
+
+
+class LanguageTypes(IntEnum):
+    """Enum for video language"""
+
+    GER_DUB = 0
+    GER_SUB = 1
+    ENG_DUB = 2
+    ENG_SUB = 3
 
 
 class TargetNotFoundError(Exception):
