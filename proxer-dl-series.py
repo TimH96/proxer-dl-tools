@@ -86,6 +86,7 @@ if __name__ == '__main__':
         if not exists(args.outdir):
             makedirs(args.outdir)
             print(f'Created {args.outdir}')
+        print('Downloading found episodes')
         for episode in found_episodes:
             download_mp4(
                 episode['url'],
