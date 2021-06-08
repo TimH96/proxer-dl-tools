@@ -25,7 +25,10 @@ def get_embed_url(url: str, token: list) -> str:
     # get page
     content : str = get(
         url,
-        cookies={token[0]:token[1]},
+        cookies={
+            token[0]:token[1],
+            'stream_choose':'proxer-stream'
+        },
         headers={'User-Agent': 'Mozilla/5.0'}
     ).text
     # get position of embed code
