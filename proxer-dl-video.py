@@ -26,7 +26,7 @@ if __name__ == '__main__':
     )
     parser.add_argument(
         '-t', '--token',
-        help='auth token cookie, seperated by =, example: 4lpHaNuM57r=An0th3r5tr',
+        help='auth token cookie, seperated by =, example: --token 4lpHaNuM57r=An0th3r5tr',
         required=True
     )
     args : Namespace = parser.parse_args()
