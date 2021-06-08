@@ -75,6 +75,7 @@ if __name__ == '__main__':
         except Exception:
             print(f'error: unforeseen error with getting mp4 from {page_url}')
             print(f'  skipping episode {ep_count}')
+            continue
     # log collected mp4s if in get_mode
     if args.get_mode:
         print('Launched in get_mode, printing found urls')
