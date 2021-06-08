@@ -5,7 +5,7 @@
 """
 
 from os                 import makedirs
-from os.path            import exists
+from os.path            import exists, realpath, join
 from lib.script_utils   import script_exit, check_validity_token, check_validity_episodes
 from lib.proxer_utils   import download_mp4, get_embed_url, get_mp4_url, TargetNotFoundError, LanguageTypes
 from argparse           import ArgumentParser, Namespace
@@ -82,13 +82,13 @@ if __name__ == '__main__':
             print(episode['ep'], episode['url'])
     # download in normal mode
     else:
+        args.outdir = realpath(args.outdir)
         if not exists(args.outdir):
             makedirs(args.outdir)
             print(f'Created {args.outdir}')
-        print('Downloading collected episodes')
         for episode in found_episodes:
             download_mp4(
                 episode['url'],
-                f'{args.outdir}/ep_{episode["ep"]}',
+                join(args.outdir, f'ep_{episode["ep"]}'),
                 f'{args.id} {args.lang} ep.{episode["ep"]}'
             )
