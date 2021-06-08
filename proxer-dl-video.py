@@ -4,16 +4,8 @@
     command line script to download a single video from proxer.me
 """
 
-from sys                import exit
-from lib.proxer_utils   import download_mp4, get_embed_url, get_mp4_url, TargetNotFoundError
+from lib.proxer_utils   import download_mp4, get_embed_url, get_mp4_url, _script_exit, TargetNotFoundError
 from argparse           import ArgumentParser, Namespace
-
-
-def _script_exit(reason: str) -> None:
-    """Wrapper for script exit on error"""
-    print(f'exit with error: {reason}')
-    exit()
-
 
 if __name__ == '__main__':
     # argument parsing
