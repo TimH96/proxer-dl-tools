@@ -46,6 +46,11 @@ if __name__ == '__main__':
         action='store_true',
         help="get url mode, collects direct mp4 links and posts them to stdout but doesn't download them",
     )
+    parser.add_argument(
+        '-n', '--anime_name',
+        help="name of anime, used to name episodes",
+        default=None
+    )
     args : Namespace = parser.parse_args()
     # input check
     if not args.get_mode:
@@ -53,6 +58,8 @@ if __name__ == '__main__':
             script_exit('--outdir required unless in --get_mode')
     args.token = check_validity_token(args.token)
     args.episodes = check_validity_episodes(args.episodes)
+    if not args.anime_name:
+        args.anime_name = args.id
     # collect mp4 urls
     found_episodes : list = []  # schema: {'ep': int, 'url': str}
     print('Collecting direct mp4 links ...')
@@ -91,6 +98,6 @@ if __name__ == '__main__':
         for episode in found_episodes:
             download_mp4(
                 episode['url'],
-                join(args.outdir, f'ep_{str(episode["ep"]).rjust(3, "0")}.mp4'),
+                join(args.outdir, f'{args.anime_name}_ep{str(episode["ep"]).rjust(3, "0")}.mp4'),
                 f'{args.id} {args.lang} ep.{episode["ep"]}'
             )
