@@ -32,7 +32,7 @@ Note that the token expires eventually, so you will have to repeat these steps b
 
 #### Download a video
 
-Run the ``proxer-dl-video`` script, passing in the video url, auth token and the file to output it to. Use ``.\proxer-dl-video.exe -h`` for more information.
+Run the ``proxer-dl-video`` script, passing in the video URL, auth token and the file to output it to. Use ``.\proxer-dl-video.exe -h`` for more information.
 
 #### Download a series
 
