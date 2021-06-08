@@ -4,7 +4,7 @@
     command line script to download a single video from proxer.me
 """
 
-from lib.script_utils   import script_exit
+from lib.script_utils   import script_exit, check_validity_token, check_validity_file
 from lib.proxer_utils   import download_mp4, get_embed_url, get_mp4_url, TargetNotFoundError
 from argparse           import ArgumentParser, Namespace
 
@@ -30,18 +30,9 @@ if __name__ == '__main__':
         required=True
     )
     args : Namespace = parser.parse_args()
-    # input guarding
-    try:
-        args.token = args.token.split('=')
-        if len(args.token[0]) <= 0 or len(args.token[1]) <= 0:
-            raise Exception
-    except Exception:
-        script_exit('auth token could not be parsed')
-    try:
-        with open(args.outfile, 'wb') as f:
-            pass
-    except Exception:
-        script_exit(f'file {args.outfile} could not be opened')
+    # input check
+    args.token = check_validity_token(args.token)
+    check_validity_file(args.outfile)
     # script execution
     try:
         embed_url = get_embed_url(
