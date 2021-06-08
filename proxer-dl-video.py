@@ -4,7 +4,7 @@
     command line script to download a single video from proxer.me
 """
 
-from lib.script_utils   import script_exit, check_validity_token, check_validity_file
+from lib.script_utils   import script_exit, check_validity_token
 from lib.proxer_utils   import download_mp4, get_embed_url, get_mp4_url, TargetNotFoundError
 from argparse           import ArgumentParser, Namespace
 
@@ -36,7 +36,6 @@ if __name__ == '__main__':
     args : Namespace = parser.parse_args()
     # input check
     args.token = check_validity_token(args.token)
-    check_validity_file(args.outfile)
     if not args.get_mode:
         if not args.outfile:
             script_exit('--outfile required unless in --get_mode')

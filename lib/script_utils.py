@@ -25,15 +25,6 @@ def check_validity_token(token: str) -> list:
         script_exit('auth token could not be parsed')
 
 
-def check_validity_file(filepath: str) -> bool:
-    """Checks if filepath can be written, exits if it can't"""
-    try:
-        with open(filepath, 'wb'):
-            pass
-    except Exception:
-        script_exit(f'file {filepath} could not be opened')
-
-
 def check_validity_episodes(episodes: str) -> list:
     """Processes episodes input and checks its validity, exits if invalid"""
     try:
