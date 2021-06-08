@@ -40,7 +40,7 @@ if __name__ == '__main__':
             args.token
         )
     except TargetNotFoundError:
-        script_exit('could not find embed, this is most likely due to an invalid auth token or because there is no proxer upload for this video')
+        script_exit('could not find embed, this is most likely due to an invalid auth token or because there is no proxer upload for this video or DDOS protection')
     mp4_url = get_mp4_url(embed_url)
     try:
         download_mp4(
