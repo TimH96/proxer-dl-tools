@@ -90,14 +90,17 @@ if __name__ == '__main__':
             print(episode['ep'], episode['url'])
     # download in normal mode
     else:
-        args.outdir = realpath(args.outdir)
-        if not exists(args.outdir):
-            makedirs(args.outdir)
-            print(f'Created {args.outdir}')
-        print('Downloading found episodes')
-        for episode in found_episodes:
-            download_mp4(
-                episode['url'],
-                join(args.outdir, f'{args.anime_name}_ep{str(episode["ep"]).rjust(3, "0")}.mp4'),
-                f'{args.id} {args.lang} ep.{episode["ep"]}'
-            )
+        try:
+            args.outdir = realpath(args.outdir)
+            if not exists(args.outdir):
+                makedirs(args.outdir)
+                print(f'Created {args.outdir}')
+            print('Downloading found episodes')
+            for episode in found_episodes:
+                download_mp4(
+                    episode['url'],
+                    join(args.outdir, f'{args.anime_name}_ep{str(episode["ep"]).rjust(3, "0")}.mp4'),
+                    f'{args.id} {args.lang} ep.{episode["ep"]}'
+                )
+        except KeyboardInterrupt:
+            script_exit('keyboard interrupt, download stopped')
