@@ -36,8 +36,12 @@ As proxer will only allow registered users to view videos, you will have to get 
 5. There will be multiple cookies there, you can find the authentication token by method of elimination - all the other cookies will be humanly readable to some degree, look for the one that looks like two random alphanumerical strings seperated by a ``=``
 6. Copy this token and use it for the ``--token`` parameter when using the scrips, i.e. ``--token r4nD0m57rng=4lpHaNuMsTr1ng``
 
-Note that the token expires eventually, so you will have to repeat these steps between download sessions.
+Note that the token expires eventually, so you will have to repeat these steps between download sessions. The scripts might also be caught by the DDOS protection. You can circumvent this by opening any video page in your browser and completing the Captcha verification, then running the script again.
 
 #### Download a video
 
+Run the ``proxer-dl-video`` script, passing in the video url, auth token and the file to output it to. Use ``.\proxer-dl-video.exe -h`` for more information.
+
 #### Download a series
+
+Run the ``proxer-dl-series`` script, passing in the anime ID, auth token, output directory, episode range and language option. You can also retrieve all the download links instead with the ``--get_mode`` parameter, which might be useful if you want more control over when and how to download the series, i.e. from your browser. Use ``.\proxer-dl-series.exe -h`` for more information.
