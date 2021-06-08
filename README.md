@@ -3,13 +3,7 @@ This is a collection of lightweight command line scripts to directly download vi
 $ python .\proxer-dl-series.py -i 8225 -l engsub -t Y0uR5oken=4lphNuM5tr -o H:\anime\Ping_Pong\ -e 1-11
 ```
 
-### Dependencies
-
-These tools use the ``clint`` module to parse the download progress bar. It can be easily installed using ``pip``:
-
-```bash
-$ pip install clint
-```
+-------------------------------------------
 
 ### Usage
 
@@ -38,10 +32,18 @@ Run the ``proxer-dl-video`` script, passing in the video URL, auth token and the
 
 Run the ``proxer-dl-series`` script, passing in the anime ID, auth token, output directory, episode range and language option. You can also retrieve all the download links instead with the ``--get_mode`` parameter, which might be useful if you want more control over when and how to download the series, i.e. from your browser. Use ``.\proxer-dl-series.exe -h`` for more information.
 
+### Dependencies
+
+These tools use the ``clint`` module to parse the download progress bar. It can be easily installed using ``pip``:
+
+```bash
+$ pip install clint
+```
+
 ### Note of Intent
 
 I wrote these tools with the following purpose in mind:
 + Backing up potentially volatile data.
 + Watching anime on demand. Proxer hosts anime in excellent quality (better than any host I am aware of), but their servers can be understandbly slow given that their service is free. This however can make streaming shows nigh unwatchably at times.
 
-However, these tools are prone to abuse, further straining the already overloaded serves, and I'm also be advertising techniques such as circumventing their DDOS protection. I therefore want to state that I appreciate the free service proxer.me is hosting and in no way encourage bad actors. Please be sensible when downloading.
+However, these tools are prone to abuse, further straining the already overloaded serves, and I'm also advertising techniques such as circumventing their DDOS protection. I therefore want to state that I appreciate the free service proxer.me is hosting and in no way encourage bad actors. Please be sensible when downloading.
