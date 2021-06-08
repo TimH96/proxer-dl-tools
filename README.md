@@ -23,7 +23,7 @@ $ pip install clint
 
 #### Install
 
-If you have Python 3.9^, you can just clone the repo and install it's dependencies. Alternatively, you can download the packaged exectuables from the releases page.
+If you have Python 3.9^, you can just clone the repo and install it's dependencies. Alternatively, you can download the packaged exectuables from the [releases page](https://github.com/TimH96/proxer-dl-tools/releases).
 
 #### Getting your authentication cookie
 
