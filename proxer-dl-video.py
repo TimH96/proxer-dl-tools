@@ -64,5 +64,6 @@ if __name__ == '__main__':
             args.outfile,
             args.outfile
         )
+        print(f'successfully downloaded {args.url}')
     except KeyboardInterrupt:
         _script_exit('keyboard interrupt, download stopped')
