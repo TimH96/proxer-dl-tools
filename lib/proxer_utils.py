@@ -1,22 +1,15 @@
 """
-    lib/proxer-utils.py
+    lib/proxer_utils.py
 
     lib for utility functions to scrape data from proxer.me
 """
 
-from sys            import exit
 from requests       import Response, get
 from clint.textui   import progress
 
 
 class TargetNotFoundError(Exception):
     """Error thrown when target element of scrape could not be found"""
-
-
-def _script_exit(reason: str) -> None:
-    """Wrapper for script exit on error"""
-    print(f'exit with error: {reason}')
-    exit()
 
 
 def get_embed_url(url: str, token: list) -> str:

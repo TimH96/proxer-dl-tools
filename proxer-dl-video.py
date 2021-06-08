@@ -4,7 +4,8 @@
     command line script to download a single video from proxer.me
 """
 
-from lib.proxer_utils   import download_mp4, get_embed_url, get_mp4_url, _script_exit, TargetNotFoundError
+from lib.script_utils   import _script_exit
+from lib.proxer_utils   import download_mp4, get_embed_url, get_mp4_url, TargetNotFoundError
 from argparse           import ArgumentParser, Namespace
 
 if __name__ == '__main__':
