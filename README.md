@@ -34,10 +34,11 @@ Run the ``proxer-dl-series`` script, passing in the anime ID, auth token, output
 
 ### Dependencies
 
-These tools use the ``clint`` module to parse the download progress bar. It can be easily installed using ``pip``:
+These tools use the ``clint`` module to parse the download progress bar and the ``requests`` module for HTTP requests. They can be easily installed using ``pip``:
 
 ```bash
 $ pip install clint
+$ pip install requests
 ```
 
 ### Note of Intent
