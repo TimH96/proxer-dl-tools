@@ -25,11 +25,13 @@ if __name__ == '__main__':
         '-l', '--lang',
         help='language type',
         required=True,
-        choices=[lang.name.lower() for lang in LanguageTypes]
+        choices=[lang.name.lower() for lang in LanguageTypes],
+        default=LanguageTypes.ENGSUB.name.lower() 
     )
     parser.add_argument(
         '-o', '--outdir',
-        help='path to output dir'
+        help='path to output dir',
+        default='.'
     )
     parser.add_argument(
         '-t', '--token',
