@@ -4,10 +4,11 @@
     command line script to download an entire series from proxer.me
 """
 
-from os                 import makedirs
+from os                 import makedirs, getcwd
 from os.path            import exists, realpath, join
 from lib.script_utils   import script_exit, check_validity_token, check_validity_episodes
 from lib.proxer_utils   import download_mp4, get_embed_url, get_mp4_url, TargetNotFoundError, LanguageTypes
+from pathlib            import Path
 from argparse           import ArgumentParser, Namespace
 
 if __name__ == '__main__':
@@ -24,7 +25,6 @@ if __name__ == '__main__':
     parser.add_argument(
         '-l', '--lang',
         help='language type',
-        required=True,
         choices=[lang.name.lower() for lang in LanguageTypes],
         default=LanguageTypes.ENGSUB.name.lower() 
     )
@@ -50,8 +50,8 @@ if __name__ == '__main__':
     )
     parser.add_argument(
         '-n', '--anime_name',
-        help="name of anime, used to name episodes",
-        default=None
+        help="name of anime, used to name episodes, defaults to name of working dir",
+        default=Path(getcwd()).parts[-1]
     )
     args : Namespace = parser.parse_args()
     # input check
